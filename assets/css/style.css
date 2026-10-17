@@ -2387,3 +2387,508 @@ textarea.form-control {
     }
     .sample-banner-icon { margin: 0 auto; }
 }
+
+/* ==========================================================================
+   LUXURY UPGRADES: CURRENCY SWITCHER, SAMPLE BOX, QUIZ & PROVENANCE
+   ========================================================================== */
+
+/* Currency Selector */
+.currency-switch-box {
+    display: inline-flex;
+    align-items: center;
+}
+
+.currency-select-input {
+    background: #FFFFFF;
+    border: 1px solid var(--color-sand);
+    border-radius: var(--radius-full);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.currency-select-input:hover,
+.currency-select-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+}
+
+/* VIP Sample Box Ribbon */
+.sample-box-banner-wrapper {
+    padding: 2rem 0;
+    background: #FAF8F5;
+}
+
+.sample-box-banner {
+    background: linear-gradient(135deg, #3A0D15 0%, #5A1521 60%, #8E6E34 100%);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    border: 1.5px solid var(--color-gold);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.sample-box-banner::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.sample-box-left {
+    flex: 1;
+    z-index: 2;
+}
+
+.sample-box-tag {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gold-light);
+    margin-bottom: 0.6rem;
+}
+
+.sample-box-heading {
+    font-family: var(--font-editorial);
+    font-size: 1.95rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+    color: #FFFFFF;
+}
+
+.sample-box-sub {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+}
+
+.sample-box-perks {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--color-gold-light);
+    font-weight: 600;
+}
+
+.sample-box-right {
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+/* Button Shimmer Animation */
+.btn-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shimmer::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 70%
+    );
+    transform: rotate(30deg) translateY(-100%);
+    animation: shimmerSlide 4.5s infinite;
+}
+
+@keyframes shimmerSlide {
+    0%, 70% { transform: rotate(30deg) translateY(-100%); }
+    85%, 100% { transform: rotate(30deg) translateY(100%); }
+}
+
+/* 3-Step Occasion Concierge Quiz */
+.quiz-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-sand);
+    box-shadow: var(--shadow-md);
+    padding: 2.5rem;
+}
+
+.quiz-steps-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-sand);
+}
+
+.quiz-step-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-step-badge {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: 0.2rem;
+}
+
+.quiz-step-heading {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-charcoal);
+    margin-bottom: 1rem;
+}
+
+.quiz-options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.quiz-opt-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    background: var(--color-cream);
+    border: 1.5px solid var(--color-sand);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition-fast);
+    font-family: inherit;
+}
+
+.quiz-opt-btn:hover {
+    border-color: var(--color-gold);
+    background: #FFFFFF;
+}
+
+.quiz-opt-btn.active {
+    background: #FFFFFF;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(90, 21, 33, 0.08);
+}
+
+.quiz-opt-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.quiz-opt-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+}
+
+.quiz-opt-btn.active .quiz-opt-title {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Quiz Dynamic Result Box */
+.quiz-result-box {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    background: var(--color-cream);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.quiz-result-media {
+    position: relative;
+    height: 260px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-result-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quiz-result-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(90, 21, 33, 0.9);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-gold);
+}
+
+.quiz-result-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-result-pre {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: 0.3rem;
+}
+
+.quiz-result-title {
+    font-family: var(--font-editorial);
+    font-size: 1.85rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+}
+
+.quiz-result-desc {
+    font-size: 0.9rem;
+    color: var(--color-charcoal-muted);
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+}
+
+.quiz-result-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    background: #FFFFFF;
+    padding: 1.1rem 1.4rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-sand);
+    margin-bottom: 1.6rem;
+}
+
+.quiz-metric-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-metric-lbl {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-charcoal-muted);
+    margin-bottom: 0.2rem;
+}
+
+.quiz-metric-val {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--color-primary);
+}
+
+.quiz-result-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Provenance & Craftsmanship Grid */
+.provenance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.provenance-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    padding: 2.2rem 1.6rem;
+    border: 1px solid var(--color-sand);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.provenance-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold);
+}
+
+.provenance-seal {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1;
+}
+
+.provenance-card h4 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+}
+
+.provenance-card p {
+    font-size: 0.84rem;
+    color: var(--color-charcoal-muted);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+}
+
+.provenance-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    background: rgba(197, 160, 89, 0.15);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+}
+
+/* Verified Testimonials Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    padding: 2.2rem 2rem;
+    border: 1px solid var(--color-sand);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-stars {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+    font-family: var(--font-editorial);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-charcoal);
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    flex-grow: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--color-sand);
+    padding-top: 1.2rem;
+}
+
+.testimonial-avatar-initials {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.88rem;
+    flex-shrink: 0;
+}
+
+.testimonial-author strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--color-charcoal);
+}
+
+.testimonial-author span {
+    font-size: 0.76rem;
+    color: var(--color-charcoal-muted);
+}
+
+/* Mobile Media Queries for Luxury Components */
+@media (max-width: 992px) {
+    .sample-box-banner {
+        flex-direction: column;
+        padding: 2.2rem 1.8rem;
+        gap: 1.8rem;
+        text-align: center;
+    }
+    .sample-box-perks {
+        justify-content: center;
+    }
+    .quiz-steps-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .quiz-result-box {
+        grid-template-columns: 1fr;
+    }
+    .quiz-result-media {
+        height: 220px;
+    }
+    .provenance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .quiz-card {
+        padding: 1.5rem;
+    }
+    .quiz-result-box {
+        padding: 1.25rem;
+    }
+    .quiz-result-metrics {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    .quiz-result-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .provenance-grid {
+        grid-template-columns: 1fr;
+    }
+}

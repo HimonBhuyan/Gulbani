@@ -664,3 +664,174 @@ function initWaxSealPreviewer() {
         });
     }
 }
+
+
+// ==========================================================================
+// INTERNATIONAL CURRENCY SWITCHER (INR, USD, AED, GBP)
+// ==========================================================================
+const CURRENCIES = {
+    INR: { code: "INR", symbol: "?", rate: 1.0, flag: "????" },
+    USD: { code: "USD", symbol: "$", rate: 0.0119, flag: "????" },
+    AED: { code: "AED", symbol: "AED ", rate: 0.0438, flag: "????" },
+    GBP: { code: "GBP", symbol: "?", rate: 0.00925, flag: "????" }
+};
+
+let currentCurrency = localStorage.getItem("gulbani_currency") || "INR";
+
+function formatPrice(amountInINR) {
+    const curr = CURRENCIES[currentCurrency] || CURRENCIES.INR;
+    const converted = amountInINR * curr.rate;
+    
+    if (curr.code === "INR") {
+        return "?" + Math.round(converted).toLocaleString("en-IN");
+    } else {
+        return curr.symbol + Math.round(converted).toLocaleString("en-US");
+    }
+}
+
+window.formatPrice = formatPrice;
+
+function setCurrency(newCurr) {
+    if (!CURRENCIES[newCurr]) return;
+    currentCurrency = newCurr;
+    localStorage.setItem("gulbani_currency", newCurr);
+
+    document.querySelectorAll(".currency-selector").forEach(sel => {
+        sel.value = newCurr;
+    });
+
+    document.querySelectorAll("[data-base-price]").forEach(el => {
+        const base = parseFloat(el.getAttribute("data-base-price"));
+        if (!isNaN(base)) {
+            el.textContent = formatPrice(base);
+        }
+    });
+
+    if (typeof window.updateGulbaniBuilder === "function") {
+        window.updateGulbaniBuilder();
+    }
+
+    if (typeof renderInquiryDrawer === "function") {
+        renderInquiryDrawer();
+    }
+
+    showToast(`Currency switched to ${CURRENCIES[newCurr].flag} ${newCurr}`);
+}
+
+window.setCurrency = setCurrency;
+
+function initCurrencySwitcher() {
+    const saved = localStorage.getItem("gulbani_currency") || "INR";
+    document.querySelectorAll(".currency-selector").forEach(sel => {
+        sel.value = saved;
+    });
+    setCurrency(saved);
+}
+
+// ==========================================================================
+// 3-STEP OCCASION CONCIERGE QUIZ ENGINE (GULBANI ROYAL EDITION)
+// ==========================================================================
+function initOccasionQuiz() {
+    const quizSection = document.getElementById("conciergeQuizSection");
+    if (!quizSection) return;
+
+    const quizState = {
+        occasion: "wedding",
+        budget: "signature",
+        aesthetic: "brass"
+    };
+
+    const recommendations = {
+        "wedding-signature-brass": {
+            title: "The Shubh Arambh Royal Trousseau Platter",
+            desc: "Hand-hammered silver platter with sculpted brass vine handles, paired with pair of brass temple diyas, saffron-infused pistachio mithai, and a personalized gold-foil family blessing parchment.",
+            price: 5500,
+            image: "assets/images/hammered_tray.jpg"
+        },
+        "wedding-opulent-wood": {
+            title: "The Airavat Royal Teakwood Elephant Platter",
+            desc: "Solid seasoned teakwood tray elevated on three hand-carved silver-plated elephant feet, loaded with 1kg premium California Mamra almonds and brass dry fruit bowls.",
+            price: 9200,
+            image: "assets/images/silver_wood_platter.jpg"
+        },
+        "festive-signature-brass": {
+            title: "The Sacred Sundarkand Royal Brass Casket",
+            desc: "Antiqued heavy-gauge hammered brass casket containing Sunderkand booklet with gold foil calligraphy, raw silk zardozi potlis of Mamra almonds, and brass lotus diya.",
+            price: 4800,
+            image: "assets/images/festive_brass.jpg"
+        },
+        "festive-opulent-urn": {
+            title: "The Mughal Floral Ceramic Urn & Saffron Jar",
+            desc: "Hand-painted ceramic urn adorned with intricate cobalt flora, paired with organic Kashmiri saffron vial, artisanal brass tea strainer, and royal amber candle.",
+            price: 8800,
+            image: "assets/images/ceramic_pot.jpg"
+        },
+        "baby-entry-urn": {
+            title: "The Heirloom Baby Arrival Welcome Trunk",
+            desc: "Artisanal trunk with custom laser-engraved brass baby name plaque, scented beeswax nursery candle, and personalized satin ribbon bow.",
+            price: 4200,
+            image: "assets/images/baby_hamper.jpg"
+        },
+        "corporate-signature-brass": {
+            title: "The Sovereign Brass Birdcage Confectionery Hamper",
+            desc: "Ornate gold lattice birdcage housing exotic Turkish delights, roasted jumbo cashews, and handcrafted antique brass desk accessories.",
+            price: 5200,
+            image: "assets/images/floral_cage.jpg"
+        }
+    };
+
+    function updateQuizRecommendation() {
+        const key = `${quizState.occasion}-${quizState.budget}-${quizState.aesthetic}`;
+        const fallbackKey = `${quizState.occasion}-${quizState.budget}` in recommendations
+            ? `${quizState.occasion}-${quizState.budget}`
+            : "wedding-signature-brass";
+
+        const item = recommendations[key] || recommendations[fallbackKey] || recommendations["wedding-signature-brass"];
+
+        const titleEl = document.getElementById("quizResultTitle");
+        const descEl = document.getElementById("quizResultDesc");
+        const priceEl = document.getElementById("quizResultPrice");
+        const imgEl = document.getElementById("quizResultImg");
+        const waBtn = document.getElementById("quizWhatsAppBtn");
+
+        if (titleEl) titleEl.textContent = item.title;
+        if (descEl) descEl.textContent = item.desc;
+        if (priceEl) {
+            priceEl.setAttribute("data-base-price", item.price);
+            priceEl.textContent = formatPrice(item.price);
+        }
+        if (imgEl) {
+            imgEl.style.opacity = "0.4";
+            setTimeout(() => {
+                imgEl.src = item.image;
+                imgEl.style.opacity = "1";
+            }, 180);
+        }
+
+        if (waBtn) {
+            const occName = quizState.occasion.toUpperCase();
+            const msg = encodeURIComponent(`Hello Gulbani Concierge, I completed your 30-Second Occasion Quiz for *${occName}*.\n\nRecommended: *${item.title}* (Budget approx ${formatPrice(item.price)}).\n\nCould you please share the master sample box availability and bespoke royal customization details?`);
+            waBtn.href = `https://wa.me/919876543210?text=${msg}`;
+        }
+    }
+
+    function setupStep(stepId, stateKey) {
+        const stepEl = document.getElementById(stepId);
+        if (!stepEl) return;
+
+        stepEl.querySelectorAll(".quiz-opt-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                stepEl.querySelectorAll(".quiz-opt-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                quizState[stateKey] = btn.getAttribute("data-val");
+                updateQuizRecommendation();
+            });
+        });
+    }
+
+    setupStep("quizStep1", "occasion");
+    setupStep("quizStep2", "budget");
+    setupStep("quizStep3", "aesthetic");
+
+    updateQuizRecommendation();
+}

@@ -101,6 +101,149 @@
 </section>
 
 
+
+<!-- VIP Master Sample Casket Request Ribbon -->
+<div class="sample-box-banner-wrapper">
+    <div class="container">
+        <div class="sample-box-banner">
+            <div class="sample-box-left">
+                <span class="sample-box-tag">? Royal Concierge Service</span>
+                <h3 class="sample-box-heading">Planning a Royal Destination Wedding or Corporate CXO Gala?</h3>
+                <p class="sample-box-sub">Request a private Master Sample Box featuring hammered brass finishes, luxury silk potlis, authentic saffron confectionery tasting jars, and custom wax seal swatches delivered directly to your home or office in 48 hours.</p>
+                <div class="sample-box-perks">
+                    <span>? Express 48-Hour Air Dispatch</span>
+                    <span>? Custom Monogram / Wax Seal Stamp Sample</span>
+                    <span>? 100% Credited Towards Bulk Order</span>
+                </div>
+            </div>
+            <div class="sample-box-right">
+                <a href="https://wa.me/919876543210?text=Hello%20Gulbani%20Concierge,%20I%20would%20like%20to%20request%20a%20Physical%20Master%20Sample%20Box%20for%20an%20upcoming%20royal%20event." target="_blank" rel="noopener" class="btn btn-gold btn-lg btn-shimmer">
+                    <span>Request Master Sample Casket</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Interactive 3-Step Occasion Concierge Quiz -->
+<section class="section section-bg-cream" id="conciergeQuizSection">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-pretitle">The 30-Second Concierge</span>
+            <h2 class="section-title">Find Your <em>Royal Gifting Suite</em></h2>
+            <p class="section-subtitle">Answer 3 questions to receive a tailored regal curation with instant sample dispatch.</p>
+        </div>
+
+        <div class="quiz-card">
+            <div class="quiz-steps-row">
+                <!-- Step 1: Occasion -->
+                <div class="quiz-step-block">
+                    <div class="quiz-step-badge">Step 1</div>
+                    <h4 class="quiz-step-heading">Select Occasion</h4>
+                    <div class="quiz-options-group" id="quizStep1">
+                        <button type="button" class="quiz-opt-btn active" data-val="wedding">
+                            <span class="quiz-opt-icon">???</span>
+                            <span class="quiz-opt-title">Destination Wedding & Trousseau</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn" data-val="festive">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">Sundarkand & Festive Pooja</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn" data-val="baby">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">Baby Announcement & Trunks</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn" data-val="corporate">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">VIP Corporate Connoisseur</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Budget Tier -->
+                <div class="quiz-step-block">
+                    <div class="quiz-step-badge">Step 2</div>
+                    <h4 class="quiz-step-heading">Target Budget Tier</h4>
+                    <div class="quiz-options-group" id="quizStep2">
+                        <button type="button" class="quiz-opt-btn" data-val="entry">
+                            <span class="quiz-opt-icon">?</span>
+                            <span class="quiz-opt-title">Bespoke (?2,500 ? ?4,500)</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn active" data-val="signature">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">Royal Signature (?4,500 ? ?8,000)</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn" data-val="opulent">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">Devotional Opulence (?8,000+)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Material Aesthetic -->
+                <div class="quiz-step-block">
+                    <div class="quiz-step-badge">Step 3</div>
+                    <h4 class="quiz-step-heading">Keepsake Vessel</h4>
+                    <div class="quiz-options-group" id="quizStep3">
+                        <button type="button" class="quiz-opt-btn active" data-val="brass">
+                            <span class="quiz-opt-icon">?</span>
+                            <span class="quiz-opt-title">Hammered Brass & Silver Platter</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn" data-val="wood">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">Seasoned Teakwood & Silver Casket</span>
+                        </button>
+                        <button type="button" class="quiz-opt-btn" data-val="urn">
+                            <span class="quiz-opt-icon">??</span>
+                            <span class="quiz-opt-title">Hand-Painted Mughal Ceramic Urn</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Dynamic Result Box -->
+            <div class="quiz-result-box" id="quizResultBox">
+                <div class="quiz-result-media">
+                    <img id="quizResultImg" src="{{ $base_url }}/assets/images/hammered_tray.jpg" alt="Recommended Royal Hamper">
+                    <span class="quiz-result-badge" id="quizResultBadge">98% Match For You</span>
+                </div>
+                <div class="quiz-result-info">
+                    <span class="quiz-result-pre">Curated Recommendation</span>
+                    <h3 class="quiz-result-title" id="quizResultTitle">The Shubh Arambh Royal Trousseau Platter</h3>
+                    <p class="quiz-result-desc" id="quizResultDesc">Hand-hammered silver platter with sculpted brass vine handles, paired with pair of brass temple diyas, saffron-infused pistachio mithai, and a personalized gold-foil family blessing parchment.</p>
+                    
+                    <div class="quiz-result-metrics">
+                        <div class="quiz-metric-item">
+                            <span class="quiz-metric-lbl">Target Unit Budget</span>
+                            <span class="quiz-metric-val" id="quizResultPrice" data-base-price="5500">?5,500</span>
+                        </div>
+                        <div class="quiz-metric-item">
+                            <span class="quiz-metric-lbl">Artisan Lead Time</span>
+                            <span class="quiz-metric-val">3?5 Days (Express Sample in 48h)</span>
+                        </div>
+                        <div class="quiz-metric-item">
+                            <span class="quiz-metric-lbl">Suggested Scale</span>
+                            <span class="quiz-metric-val">15 to 250+ Royal Favors</span>
+                        </div>
+                    </div>
+
+                    <div class="quiz-result-actions">
+                        <a id="quizWhatsAppBtn" href="https://wa.me/919876543210?text=Hello%20Gulbani,%20I%20took%20your%20Occasion%20Quiz%20and%20got%20The%20Shubh%20Arambh%20Royal%20Trousseau%20Platter.%20I%20would%20like%20to%20request%20a%20sample%20box." target="_blank" rel="noopener" class="btn btn-gold btn-shimmer">
+                            <span>Request Sample Casket on WhatsApp</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2Z"/></svg>
+                        </a>
+                        <a href="{{ $base_url }}/?page=builder" class="btn btn-outline">
+                            Customize in Hamper Concierge
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Signature Curated Collections Section -->
 <section class="section section-bg-cream" id="signatureCollections">
     <div class="container">
@@ -132,6 +275,98 @@
                 <span>View Complete Catalogue ({{ count($products) }} Curations)</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Artisan Provenance & Craftsmanship Guarantee -->
+<section class="section section-bg-sand" id="craftsmanshipGuarantee">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-pretitle">The Gulbani Atelier Hallmark</span>
+            <h2 class="section-title">Heirloom Provenance & <em>Master Craftsmanship</em></h2>
+            <p class="section-subtitle">Every vessel and confection is vetted for royal opulence before receiving our hallmark wax seal.</p>
+        </div>
+
+        <div class="provenance-grid">
+            <div class="provenance-card">
+                <div class="provenance-seal">?</div>
+                <h4>Solid Hammered Brass & Silver Plating</h4>
+                <p>Heavy gauge bell metal hand-beaten by master metalsmiths. Finished with food-safe antique silver plating and protective tarnish-resistant glaze.</p>
+                <span class="provenance-tag">Permanent Keepsake</span>
+            </div>
+
+            <div class="provenance-card">
+                <div class="provenance-seal">??</div>
+                <h4>Seasoned Teakwood & Cast Silver Feet</h4>
+                <p>Kiln-dried plantation teakwood hand-polished with organic beeswax, resting upon solid cast silver-plated elephant feet designed for eternal durability.</p>
+                <span class="provenance-tag">Master Woodcraft</span>
+            </div>
+
+            <div class="provenance-card">
+                <div class="provenance-seal">??</div>
+                <h4>Hand-Painted Mughal Ceramics</h4>
+                <p>Ceramic canisters hand-painted with mineral cobalt glazes inspired by Mughal court flora, crowned with royal cast brass finials.</p>
+                <span class="provenance-tag">Artisanal Heritage</span>
+            </div>
+
+            <div class="provenance-card">
+                <div class="provenance-seal">??</div>
+                <h4>White-Glove Pan-India & Global Express</h4>
+                <p>Shock-resistant insulated trunks with custom wax seal presentation. Guaranteed zero-breakage delivery across all Indian cities and international destinations.</p>
+                <span class="provenance-tag">Insured Global Transit</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Verified Client Milestones & Case Studies -->
+<section class="section section-bg-cream" id="clientMilestones">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-pretitle">Distinguished Celebrations</span>
+            <h2 class="section-title">Treasured at <em>India's Finest Palaces</em></h2>
+            <p class="section-subtitle">Real experiences from royal trousseau unveilings, Sundarkand poojas, and destination weddings.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">?????</div>
+                <p class="testimonial-quote">"Gulbani curated 280 Sundarkand brass caskets for our daughter's wedding celebrations at Taj Palace, New Delhi. The weight of the brass, the saffron fragrance, and the personalized wax seals left every guest spellbound."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar-initials">AK</div>
+                    <div>
+                        <strong>Mrs. Anita Khemka</strong>
+                        <span>Wedding Celebrations ? Taj Palace, New Delhi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">?????</div>
+                <p class="testimonial-quote">"For our family's baby announcement, the customized heirloom trunks with brass name plaques were beyond breathtaking. The white-glove delivery across 6 different cities arrived in immaculate condition."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar-initials">VS</div>
+                    <div>
+                        <strong>Varun & Sanjana Singhal</strong>
+                        <span>Baby Royal Announcement ? Vasant Vihar, New Delhi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">?????</div>
+                <p class="testimonial-quote">"Our destination wedding at The Leela Palace Udaipur needed trousseau packaging that matched the royal palace aesthetic. Gulbani delivered pure perfection with zero delays."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar-initials">RM</div>
+                    <div>
+                        <strong>Rhea & Manav Mittal</strong>
+                        <span>Destination Wedding ? The Leela Palace, Udaipur</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
