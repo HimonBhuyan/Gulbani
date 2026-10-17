@@ -1987,14 +1987,28 @@ textarea.form-control {
     
     /* Floating WhatsApp Button */
     .floating-whatsapp {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        padding: 0.75rem;
-        border-radius: var(--radius-full);
+        bottom: 1.25rem !important;
+        right: 1.25rem !important;
+        width: 52px !important;
+        height: 52px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45) !important;
+        border: 2px solid #FFFFFF !important;
+        z-index: 999 !important;
     }
     
     .floating-whatsapp span {
-        display: none;
+        display: none !important;
+    }
+
+    .floating-whatsapp svg {
+        width: 26px !important;
+        height: 26px !important;
+        margin: 0 !important;
     }
     
     /* Footer */
@@ -2046,9 +2060,18 @@ textarea.form-control {
     
     .insta-profile-bar {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 1.2rem;
-        padding: 1.2rem;
+        align-items: stretch;
+        gap: 1.25rem;
+        padding: 1.25rem 1rem;
+    }
+    
+    .insta-profile-bar .btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
     }
     
     .insta-grid {
