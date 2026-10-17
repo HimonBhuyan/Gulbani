@@ -190,6 +190,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Brand Logo */
 .brand-logo {
+    cursor: pointer;
+}
+.site-logo-img {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.brand-logo:hover .site-logo-img {
+    transform: scale(1.04);
+}
+.brand-logo-old {
     display: flex;
     flex-direction: column;
     align-items: center;

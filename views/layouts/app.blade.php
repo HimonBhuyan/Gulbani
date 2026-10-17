@@ -14,8 +14,8 @@
     <meta property="og:image" content="{{ $base_url }}/assets/images/hero_banner.jpg">
     <meta property="og:type" content="website">
 
-    <!-- Favicon (Lotus Symbol) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A059'><path d='M12 2C12 2 9 6.5 9 10C9 12.21 10.34 14 12 14C13.66 14 15 12.21 15 10C15 6.5 12 2 12 2ZM5.5 10C5.5 10 3 13.5 3 16C3 17.66 4.34 19 6 19C7.38 19 8.5 18 8.88 16.75C7.24 15.5 6.13 13.3 5.5 10ZM18.5 10C17.87 13.3 16.76 15.5 15.12 16.75C15.5 18 16.62 19 18 19C19.66 19 21 17.66 21 16C21 13.5 18.5 10 18.5 10ZM12 15C10.5 15 8.5 16 7 18C7 18 9 21 12 21C15 21 17 18 17 18C15.5 16 13.5 15 12 15Z'/></svg>">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ $base_url }}/assets/images/favicon.png">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
@@ -50,13 +50,9 @@
                     </svg>
                 </button>
 
-                <!-- Brand Logo (Matching Gulbani Instagram Identity) -->
-                <a href="{{ $base_url }}/?page=home" class="brand-logo" id="headerLogo">
-                    <svg class="brand-icon-lotus" viewBox="0 0 24 16">
-                        <path d="M12 0C12 0 9 4.5 9 8C9 10.2 10.3 12 12 12C13.7 12 15 10.2 15 8C15 4.5 12 0 12 0ZM5.5 8C5.5 8 3 11 3 13.5C3 15.2 4.3 16 6 16C7.4 16 8.5 15.1 8.9 14C7.2 12.8 6.1 10.8 5.5 8ZM18.5 8C17.9 10.8 16.8 12.8 15.1 14C15.5 15.1 16.6 16 18 16C19.7 16 21 15.2 21 13.5C21 11 18.5 8 18.5 8Z"/>
-                    </svg>
-                    <span class="brand-title">GULBANI</span>
-                    <span class="brand-subtitle">CREATIVE CO. • NEW DELHI</span>
+                <!-- Brand Logo (Official Gulbani Creative Co. Identity) -->
+                <a href="{{ $base_url }}/?page=home" class="brand-logo" id="headerLogo" aria-label="Gulbani Home">
+                    <img src="{{ $base_url }}/assets/images/logo_crop.png" alt="GULBANI Creative Co. New Delhi" class="site-logo-img">
                 </a>
 
                 <!-- Desktop Navigation Menu -->
@@ -94,10 +90,9 @@
     <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
         <div class="mobile-drawer-header">
-            <div class="brand-logo" style="align-items: flex-start;">
-                <span class="brand-title" style="font-size: 1.4rem;">GULBANI</span>
-                <span class="brand-subtitle" style="font-size: 0.52rem;">LUXURY GIFTING CONCIERGE</span>
-            </div>
+            <a href="{{ $base_url }}/?page=home" class="brand-logo" style="align-items: flex-start;" aria-label="Gulbani Home">
+                <img src="{{ $base_url }}/assets/images/logo_crop.png" alt="GULBANI" class="site-logo-img" style="height: 38px;">
+            </a>
             <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">✕</button>
         </div>
         <div class="mobile-drawer-body">
@@ -156,7 +151,9 @@
             <div class="footer-top-grid">
                 <!-- Brand Info -->
                 <div class="footer-brand">
-                    <h3>GULBANI</h3>
+                    <a href="{{ $base_url }}/?page=home" style="display: inline-block; margin-bottom: 1.2rem;" aria-label="Gulbani Home">
+                        <img src="{{ $base_url }}/assets/images/logo_crop_gold.png" alt="GULBANI Creative Co." class="footer-logo-img" style="height: 44px; width: auto; object-fit: contain;">
+                    </a>
                     <p>Luxe • Curated • Unforgettable. Your private luxury gifting concierge based in New Delhi, crafting bespoke royal hampers, artisanal brass keepsakes, and heirloom celebrations.</p>
                     <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1.2rem;">
                         <a href="https://instagram.com/gulbani.india/" target="_blank" rel="noopener" style="color: var(--color-gold-light); display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600;">
