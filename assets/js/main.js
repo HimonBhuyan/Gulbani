@@ -609,11 +609,11 @@ function initConsultationForm() {
         const budget = form.querySelector('[name="budget"]').value;
         const notes = form.querySelector('[name="notes"]').value;
 
-        showToast(`Thank you, ${name}! Your consultation request has been received.`);
+        showToast(`Thank you, ${name}! Your gifting brief has been received.`);
         
         // Open prefilled WhatsApp
         const waText = encodeURIComponent(
-            `*NEW BESPOKE CONSULTATION REQUEST*\n` +
+            `*NEW BESPOKE GIFTING BRIEF*\n` +
             `• *Name:* ${name}\n` +
             `• *Occasion:* ${occasion}\n` +
             `• *Phone:* ${phone}\n` +

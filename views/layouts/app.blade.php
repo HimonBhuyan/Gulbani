@@ -101,7 +101,7 @@
                 <li><a href="{{ $base_url }}/?page=collections" class="mobile-nav-link {{ $current_page === 'collections' ? 'active' : '' }}">Curated Collections</a></li>
                 <li><a href="{{ $base_url }}/?page=builder" class="mobile-nav-link {{ $current_page === 'builder' ? 'active' : '' }}">Hamper Concierge</a></li>
                 <li><a href="{{ $base_url }}/?page=about" class="mobile-nav-link {{ $current_page === 'about' ? 'active' : '' }}">Our Atelier & Heritage</a></li>
-                <li><a href="{{ $base_url }}/?page=contact" class="mobile-nav-link {{ $current_page === 'contact' ? 'active' : '' }}">Private Consultation</a></li>
+                <li><a href="{{ $base_url }}/?page=contact" class="mobile-nav-link {{ $current_page === 'contact' ? 'active' : '' }}">Bespoke Inquiries</a></li>
             </ul>
 
             <div class="mobile-drawer-cta">
@@ -181,7 +181,7 @@
                     <ul class="footer-links">
                         <li><a href="{{ $base_url }}/?page=builder" class="footer-link">Build Your Hamper</a></li>
                         <li><a href="{{ $base_url }}/?page=about" class="footer-link">The Gulbani Craft</a></li>
-                        <li><a href="{{ $base_url }}/?page=contact" class="footer-link">Book Studio Visit</a></li>
+                        <li><a href="{{ $base_url }}/?page=contact" class="footer-link">Bespoke Inquiries</a></li>
                         <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="footer-link">WhatsApp Direct</a></li>
                         <li><a href="{{ $base_url }}/?page=contact" class="footer-link">Bulk Corporate Gifting</a></li>
                     </ul>

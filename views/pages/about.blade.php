@@ -91,17 +91,17 @@
     </div>
 </section>
 
-<!-- Studio Visit CTA -->
+<!-- Bespoke Consultation CTA -->
 <section class="section section-bg-wine" style="text-align: center;">
     <div class="container container-narrow">
-        <span class="section-pretitle" style="color: var(--color-gold-light);">Private Atelier Consultation</span>
-        <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 1.2rem;">Experience the Collections in <em>Person</em></h2>
+        <span class="section-pretitle" style="color: var(--color-gold-light);">Bespoke Gifting Concierge</span>
+        <h2 class="section-title" style="color: #FFFFFF; margin-bottom: 1.2rem;">Planning a Grand <em>Celebration?</em></h2>
         <p style="color: rgba(250, 247, 242, 0.85); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem;">
-            We welcome couples, wedding planners, and corporate leaders to our private studio in South Delhi for a tactile tasting and styling session.
+            From royal destination weddings to corporate milestone celebrations, we tailor heirloom hampers and courier unboxing prototypes directly to your doorstep.
         </p>
         <div style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;">
-            <a href="{{ $base_url }}/?page=contact" class="btn btn-gold btn-lg">Book Studio Appointment</a>
-            <a href="https://wa.me/919876543210" target="_blank" class="btn btn-outline-white btn-lg">WhatsApp Concierge</a>
+            <a href="{{ $base_url }}/?page=contact" class="btn btn-gold btn-lg">Request a Proposal</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">WhatsApp Concierge</a>
         </div>
     </div>
 </section>
