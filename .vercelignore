@@ -1,0 +1,8 @@
+/vendor
+.git
+.github
+/cache/*
+!/cache/.gitkeep
+*.log
+.DS_Store
+Thumbs.db
