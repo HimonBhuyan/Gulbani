@@ -32,7 +32,7 @@ $blade = new BladeOne($views, $cacheDir, BladeOne::MODE_DEBUG);
 
 // Smart Base URL Detector (Supports XAMPP, php -S root, and Vercel serverless)
 $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '');
-$cleanDir = str_replace(['\\\\', '/api'], ['/', ''], $scriptDir);
+$cleanDir = str_replace(['\\', '/api'], ['/', ''], $scriptDir);
 $base_url = rtrim($cleanDir, '/');
 
 // Route handling
