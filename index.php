@@ -9,10 +9,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use eftec\bladeone\BladeOne;
 
-// Ensure cache directory exists and is writable
+// Ensure cache directory exists and is writable (fall back to /tmp on serverless environments like Vercel)
 $cacheDir = __DIR__ . '/cache';
+if (!is_dir($cacheDir) || !is_writable($cacheDir)) {
+    $cacheDir = sys_get_temp_dir() . '/gulbani_cache';
+}
 if (!is_dir($cacheDir)) {
-    mkdir($cacheDir, 0777, true);
+    @mkdir($cacheDir, 0777, true);
 }
 
 // Load Application Data
@@ -22,9 +25,10 @@ $catalogData = require __DIR__ . '/data/products.php';
 $views = __DIR__ . '/views';
 $blade = new BladeOne($views, $cacheDir, BladeOne::MODE_DEBUG);
 
-// Smart Base URL Detector (Supports XAMPP /Gulbani as well as php -S root)
+// Smart Base URL Detector (Supports XAMPP, php -S root, and Vercel serverless)
 $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '');
-$base_url = rtrim(str_replace('\\', '/', $scriptDir), '/');
+$cleanDir = str_replace(['\\\\', '/api'], ['/', ''], $scriptDir);
+$base_url = rtrim($cleanDir, '/');
 
 // Route handling
 $page = $_GET['page'] ?? 'home';
