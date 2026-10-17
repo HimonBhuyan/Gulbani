@@ -2059,7 +2059,7 @@ textarea.form-control {
 
 
 /* ==========================================================================
-   INTERACTIVE CLIENT UPGRADES: STACKER, WAX SEAL, QUIZ, CURRENCY & SHIMMER
+   INTERACTIVE CLIENT UPGRADES: STACKER, WAX SEAL & SHIMMER
    ========================================================================== */
 
 /* 1. Button Gold Shimmer Animation */
@@ -2090,33 +2090,7 @@ textarea.form-control {
     left: 140%;
 }
 
-/* 2. Currency Selector in Announcement Bar / Header */
-.currency-selector-wrapper {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(197, 160, 89, 0.4);
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--radius-sm);
-    color: var(--color-gold-light);
-    font-size: 0.75rem;
-}
 
-.currency-dropdown {
-    background: transparent;
-    border: none;
-    color: inherit;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-}
-
-.currency-dropdown option {
-    background: var(--color-primary-dark);
-    color: #FFFFFF;
-}
 
 /* 3. Visual Hamper Stacker Stage */
 .visual-stacker-stage {
@@ -2318,84 +2292,7 @@ textarea.form-control {
     color: var(--color-gold-dark);
 }
 
-/* 5. 3-Step Occasion Concierge Quiz */
-.quiz-container-card {
-    background: #FFFFFF;
-    border: 1.5px solid rgba(197, 160, 89, 0.4);
-    border-radius: var(--radius-lg);
-    padding: 3rem;
-    box-shadow: var(--shadow-lg);
-}
 
-.quiz-steps-wrapper {
-    position: relative;
-}
-
-.quiz-step {
-    display: none;
-    animation: fadeIn 0.4s ease;
-}
-
-.quiz-step.active {
-    display: block;
-}
-
-.quiz-question {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: 1.8rem;
-}
-
-.quiz-options-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.quiz-opt {
-    background: var(--color-cream);
-    border: 1.5px solid var(--color-sand);
-    border-radius: var(--radius-md);
-    padding: 1.2rem 1.4rem;
-    font-family: var(--font-heading);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--color-charcoal);
-    cursor: pointer;
-    transition: var(--transition-base);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-}
-
-.quiz-opt:hover {
-    border-color: var(--color-gold);
-    background: #FFFFFF;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    color: var(--color-primary);
-}
-
-.quiz-opt.selected {
-    border-color: var(--color-primary);
-    background: rgba(90, 21, 33, 0.05);
-    color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
-}
-
-.quiz-results {
-    background: linear-gradient(135deg, var(--color-cream) 0%, #F5EDE0 100%);
-    border: 1.5px solid var(--color-gold);
-    border-radius: var(--radius-md);
-    padding: 2.5rem;
-    text-align: center;
-    animation: fadeIn 0.5s ease;
-}
 
 /* 6. Physical Sample Box Assurance Banner */
 .sample-request-banner {
@@ -2452,6 +2349,4 @@ textarea.form-control {
         padding: 2rem 1.5rem;
     }
     .sample-banner-icon { margin: 0 auto; }
-    .quiz-options-grid { grid-template-columns: 1fr; }
-    .quiz-container-card { padding: 2rem 1.5rem; }
 }

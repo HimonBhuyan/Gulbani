@@ -70,17 +70,8 @@
                     </ul>
                 </nav>
 
-                <!-- Actions / Wishlist Drawer, Currency & CTA -->
+                <!-- Actions / Wishlist Drawer & CTA -->
                 <div class="nav-actions">
-                    <div class="currency-selector-wrapper">
-                        <span style="font-size: 0.65rem; opacity: 0.85; text-transform: uppercase;">Cur:</span>
-                        <select class="currency-dropdown" id="globalCurrencySelector" aria-label="Select Currency">
-                            <option value="INR" selected>INR (₹)</option>
-                            <option value="USD">USD ($)</option>
-                            <option value="AED">AED (د.إ)</option>
-                            <option value="GBP">GBP (£)</option>
-                        </select>
-                    </div>
 
                     <button class="btn-icon btn-inquiry-trigger" aria-label="View Hamper Inquiries" title="View Wishlist & Inquiries">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
