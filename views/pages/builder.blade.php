@@ -102,6 +102,50 @@
                                 </div>
                             @endforeach
                         </div>
+
+                        <!-- Interactive Wax Seal & Calligraphy Note Previewer -->
+                        <div class="wax-seal-previewer-card">
+                            <h5 style="font-family: var(--font-heading); font-size: 0.88rem; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem;">
+                                ✍️ Calligraphy Note & Wax Seal Simulator
+                            </h5>
+                            <div style="margin-bottom: 1rem;">
+                                <label style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.4rem; color: var(--color-charcoal);">
+                                    Your Custom Family Blessing / Message:
+                                </label>
+                                <input type="text" id="sealMessageInput" style="width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--color-sand); border-radius: 4px; font-size: 0.9rem;" value="With heartfelt blessings, The Kapoor Family">
+                            </div>
+
+                            <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                                    <span style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Wax Seal Color:</span>
+                                    <div class="seal-color-swatches">
+                                        <button type="button" class="seal-swatch active" data-color="gold" style="background: #C5A059;" title="Antique Gold"></button>
+                                        <button type="button" class="seal-swatch" data-color="emerald" style="background: #1B4332;" title="Royal Emerald"></button>
+                                        <button type="button" class="seal-swatch" data-color="crimson" style="background: #722F37;" title="Imperial Burgundy"></button>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                                    <span style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Script Style:</span>
+                                    <select id="sealFontSelect" style="padding: 0.4rem 0.8rem; border: 1.5px solid var(--color-sand); border-radius: 4px; font-size: 0.8rem;">
+                                        <option value="calligraphy" selected>Royal Calligraphy</option>
+                                        <option value="serif">Timeless Serif</option>
+                                        <option value="modern">Modern Minimalist</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Live Parchment Card Preview -->
+                            <div class="parchment-card-preview">
+                                <div class="wax-seal-stamp gold" id="liveWaxSeal">
+                                    <span class="wax-seal-emblem">G</span>
+                                </div>
+                                <div class="parchment-text calligraphy" id="liveParchmentText">
+                                    "With heartfelt blessings, The Kapoor Family"
+                                </div>
+                                <div class="parchment-subtext">HANDMADE DECKLE-EDGE COTTON PARCHMENT • BESPOKE GULBANI FOIL</div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Builder Step Navigation Buttons -->
@@ -115,12 +159,29 @@
                     </div>
                 </div>
 
-                <!-- Live Summary Panel -->
+                <!-- Live Summary & Visual Stacker Panel -->
                 <div class="builder-summary-panel">
                     <div class="summary-card-inner">
                         <div class="summary-title">
                             <span>Your Custom Hamper</span>
                             <span style="font-size: 0.75rem; color: var(--color-gold-dark);">Live Preview</span>
+                        </div>
+
+                        <!-- Interactive Visual Hamper Stacker Stage -->
+                        <div class="visual-stacker-stage">
+                            <div class="stacker-stage-header">
+                                <span class="stacker-stage-title">📦 Visual Curation Preview</span>
+                                <span style="font-size: 0.68rem; color: var(--color-gold-dark); text-transform: uppercase;" id="stackerCountBadge">0 Items Curated</span>
+                            </div>
+
+                            <div class="stacker-vessel-preview" id="stackerVessel">
+                                <img id="stackerVesselImg" src="{{ $base_url }}/assets/images/silver_wood_platter.jpg" alt="Selected Vessel">
+                                <div class="stacker-vessel-badge" id="stackerVesselName">Select a Luxury Vessel</div>
+                            </div>
+
+                            <div class="stacker-contents-grid" id="stackerContents">
+                                <span style="font-size: 0.75rem; color: var(--color-charcoal-muted); font-style: italic;">Select artisanal treats in Step 2 to populate your vessel.</span>
+                            </div>
                         </div>
 
                         <div class="summary-items-list" id="builderSummaryList">

@@ -100,6 +100,68 @@
     </div>
 </section>
 
+<!-- 3-Step Occasion Concierge Quiz Section -->
+<section class="section section-bg-sand" id="occasionQuizSection" style="padding: 3.5rem 0;">
+    <div class="container container-narrow">
+        <div class="quiz-container-card">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="section-pretitle">30-Second Matcher</span>
+                <h2 class="section-title">The Occasion <em>Concierge Quiz</em></h2>
+                <p class="section-subtitle">Answer 3 brief questions to uncover your tailored Gulbani gift curation.</p>
+            </div>
+
+            <div class="quiz-steps-wrapper">
+                <!-- Step 1 -->
+                <div class="quiz-step active" data-quiz-step="1">
+                    <h4 class="quiz-question">1. What is the occasion or recipient profile?</h4>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" data-opt="wedding">💍 Destination Wedding Favors</button>
+                        <button type="button" class="quiz-opt" data-opt="corporate">💼 Corporate CXO Summits</button>
+                        <button type="button" class="quiz-opt" data-opt="baby">👶 Baby Arrival & Milestones</button>
+                        <button type="button" class="quiz-opt" data-opt="devotional">🪔 Festive & Sacred Pooja</button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="quiz-step" data-quiz-step="2">
+                    <h4 class="quiz-question">2. What is your preferred budget tier per gift?</h4>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" data-opt="low">✨ Thoughtful (Under ₹3,000)</button>
+                        <button type="button" class="quiz-opt" data-opt="mid">🌟 Curated Luxury (₹3,000 – ₹6,000)</button>
+                        <button type="button" class="quiz-opt" data-opt="high">👑 Ultra Regal (₹6,000+)</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="quiz-step" data-quiz-step="3">
+                    <h4 class="quiz-question">3. What is your required delivery timeframe?</h4>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" data-opt="express">⚡ Express (Within 7 - 10 Days)</button>
+                        <button type="button" class="quiz-opt" data-opt="soon">📅 In 2 - 4 Weeks</button>
+                        <button type="button" class="quiz-opt" data-opt="planned">🏰 1 - 3 Months Ahead</button>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="quiz-results" id="quizResults" style="display: none;">
+                    <span class="card-badge" style="position: static; margin-bottom: 0.6rem; display: inline-block;">Handpicked For Your Brief</span>
+                    <h3 id="quizRecTitle" style="font-family: var(--font-editorial); font-size: 1.8rem; color: var(--color-primary); margin-bottom: 0.5rem;"></h3>
+                    <p id="quizRecDesc" style="font-size: 0.92rem; color: var(--color-charcoal-muted); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6;"></p>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a id="quizWhatsAppBtn" href="#" target="_blank" rel="noopener" class="btn btn-gold">
+                            Request Sample Box on WhatsApp
+                        </a>
+                        <button type="button" class="btn btn-outline" id="quizRestartBtn">
+                            Restart Quiz ↺
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Signature Curated Collections Section -->
 <section class="section section-bg-cream" id="signatureCollections">
     <div class="container">

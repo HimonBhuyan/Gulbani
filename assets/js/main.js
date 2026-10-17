@@ -426,6 +426,34 @@ function initHamperBuilder() {
     function updateSummary() {
         if (!summaryList || !totalEl) return;
 
+        // Sync Visual Hamper Stacker Stage
+        const stackerImg = document.getElementById('stackerVesselImg');
+        const stackerName = document.getElementById('stackerVesselName');
+        const stackerContents = document.getElementById('stackerContents');
+        const stackerCount = document.getElementById('stackerCountBadge');
+
+        if (stackerImg && state.vessel) {
+            stackerImg.src = state.vessel.image;
+        }
+        if (stackerName && state.vessel) {
+            stackerName.textContent = state.vessel.name;
+        }
+        if (stackerCount) {
+            stackerCount.textContent = `${state.items.length} Items Curated`;
+        }
+        if (stackerContents) {
+            if (state.items.length === 0) {
+                stackerContents.innerHTML = `<span style="font-size: 0.75rem; color: #78716C; font-style: italic;">Select treats in Step 2 to populate your vessel.</span>`;
+            } else {
+                stackerContents.innerHTML = state.items.map(item => `
+                    <div class="stacker-item-pill">
+                        <span>✨</span>
+                        <span>${item.name}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
         let total = 0;
         let html = '';
 
@@ -596,4 +624,194 @@ function initConsultationForm() {
             form.reset();
         }, 1200);
     });
+}
+
+
+// ==========================================================================
+// WAX SEAL & CALLIGRAPHY MESSAGE PREVIEWER
+// ==========================================================================
+function initWaxSealPreviewer() {
+    const input = document.getElementById('sealMessageInput');
+    const textPreview = document.getElementById('liveParchmentText');
+    const seal = document.getElementById('liveWaxSeal');
+    const swatches = document.querySelectorAll('.seal-swatch');
+    const fontSelect = document.getElementById('sealFontSelect');
+
+    if (input && textPreview) {
+        input.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            textPreview.textContent = val ? `"${val}"` : `"With heartfelt blessings"`;
+        });
+    }
+
+    if (swatches.length && seal) {
+        swatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                swatches.forEach(s => s.classList.remove('active'));
+                swatch.classList.add('active');
+                const color = swatch.getAttribute('data-color');
+                seal.className = `wax-seal-stamp ${color}`;
+                showToast(`Wax seal updated to ${swatch.title}`);
+            });
+        });
+    }
+
+    if (fontSelect && textPreview) {
+        fontSelect.addEventListener('change', (e) => {
+            const style = e.target.value;
+            textPreview.className = `parchment-text ${style}`;
+        });
+    }
+}
+
+// ==========================================================================
+// 3-STEP OCCASION CONCIERGE QUIZ
+// ==========================================================================
+function initOccasionQuiz() {
+    const section = document.getElementById('occasionQuizSection');
+    if (!section) return;
+
+    const quizState = {
+        occasion: '',
+        budget: '',
+        timeline: ''
+    };
+
+    const steps = section.querySelectorAll('.quiz-step');
+    const results = document.getElementById('quizResults');
+    const titleEl = document.getElementById('quizRecTitle');
+    const descEl = document.getElementById('quizRecDesc');
+    const waBtn = document.getElementById('quizWhatsAppBtn');
+    const restartBtn = document.getElementById('quizRestartBtn');
+
+    function showQuizStep(stepNum) {
+        steps.forEach(s => {
+            const n = parseInt(s.getAttribute('data-quiz-step'));
+            s.classList.toggle('active', n === stepNum);
+        });
+        if (results) results.style.display = 'none';
+    }
+
+    // Step 1 Options
+    steps[0]?.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+            quizState.occasion = btn.textContent.trim();
+            showQuizStep(2);
+        });
+    });
+
+    // Step 2 Options
+    steps[1]?.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+            quizState.budget = btn.textContent.trim();
+            showQuizStep(3);
+        });
+    });
+
+    // Step 3 Options
+    steps[2]?.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+            quizState.timeline = btn.textContent.trim();
+            calculateQuizResult();
+        });
+    });
+
+    function calculateQuizResult() {
+        steps.forEach(s => s.classList.remove('active'));
+        if (!results) return;
+
+        let recTitle = "The Royal Imperial Teakwood Hamper";
+        let recDesc = "Handcrafted solid brass pooja thali, organic Kashmiri saffron sweets, and slow-roasted Afghani almonds in an heirloom velvet trunk.";
+        let recPrice = "₹4,800";
+
+        if (quizState.occasion.includes('Wedding')) {
+            recTitle = "The Shubh Arambh Royal Trousseau Platter";
+            recDesc = "Hammered silver platters, Belgium pistachio dragees, and pure brass Akhand diyas tailored for grand Indian weddings.";
+            recPrice = "₹5,200";
+        } else if (quizState.occasion.includes('Corporate')) {
+            recTitle = "The Connoisseur Teakwood Executive Suite";
+            recDesc = "Artisanal single-estate Assam tea, laser-monogrammed brass diary, and roasted spiced cashews in a laser-etched teakwood casket.";
+            recPrice = "₹4,500";
+        } else if (quizState.occasion.includes('Baby')) {
+            recTitle = "The Little Maharaja Pastel Keepsake Trunk";
+            recDesc = "Hand-embroidered organic cotton quilt, silver-plated spoon, and imported caramel popcorn jars in a duck-egg blue trunk.";
+            recPrice = "₹3,400";
+        }
+
+        if (titleEl) titleEl.textContent = `${recTitle} (${recPrice})`;
+        if (descEl) descEl.textContent = recDesc;
+
+        if (waBtn) {
+            const msg = `*GULBANI QUIZ INQUIRY*\n` +
+                `• *Occasion:* ${quizState.occasion}\n` +
+                `• *Budget:* ${quizState.budget}\n` +
+                `• *Timeline:* ${quizState.timeline}\n` +
+                `• *Recommended Hamper:* ${recTitle} (${recPrice})\n\n` +
+                `Please courier a physical unboxing sample prototype to my office for review.`;
+            waBtn.href = `https://wa.me/919876543210?text=${encodeURIComponent(msg)}`;
+        }
+
+        results.style.display = 'block';
+        showToast('Your custom hamper match is ready!');
+    }
+
+    if (restartBtn) {
+        restartBtn.addEventListener('click', () => {
+            showQuizStep(1);
+        });
+    }
+}
+
+// ==========================================================================
+// INTERNATIONAL CURRENCY SWITCHER (INR, USD, AED, GBP)
+// ==========================================================================
+function initCurrencyConverter() {
+    const selector = document.getElementById('globalCurrencySelector');
+    if (!selector) return;
+
+    const rates = {
+        INR: { symbol: '₹', rate: 1, label: 'INR (₹)' },
+        USD: { symbol: '$', rate: 1 / 84, label: 'USD ($)' },
+        AED: { symbol: 'AED ', rate: 1 / 22.8, label: 'AED (د.إ)' },
+        GBP: { symbol: '£', rate: 1 / 108, label: 'GBP (£)' }
+    };
+
+    let activeCurrency = localStorage.getItem('preferred_currency') || 'INR';
+    selector.value = activeCurrency;
+
+    function formatCurrency(amountINR) {
+        const cur = rates[activeCurrency] || rates.INR;
+        const converted = Math.round(amountINR * cur.rate);
+        return cur.symbol + converted.toLocaleString('en-US');
+    }
+
+    function convertAllPrices() {
+        const priceEls = document.querySelectorAll('.card-price, .hamper-price, .modal-price, .option-price, .total-value');
+        priceEls.forEach(el => {
+            if (!el.hasAttribute('data-original-inr')) {
+                const text = el.textContent.replace(/[^\d]/g, '');
+                const num = parseInt(text, 10);
+                if (!isNaN(num) && num > 0) {
+                    el.setAttribute('data-original-inr', num);
+                }
+            }
+
+            const inrVal = parseInt(el.getAttribute('data-original-inr'), 10);
+            if (!isNaN(inrVal)) {
+                el.textContent = formatCurrency(inrVal);
+            }
+        });
+    }
+
+    selector.addEventListener('change', (e) => {
+        activeCurrency = e.target.value;
+        localStorage.setItem('preferred_currency', activeCurrency);
+        convertAllPrices();
+        showToast(`Currency updated to ${rates[activeCurrency].label}`);
+    });
+
+    // Initial check on load
+    if (activeCurrency !== 'INR') {
+        setTimeout(convertAllPrices, 300);
+    }
 }

@@ -2057,3 +2057,401 @@ textarea.form-control {
     }
 }
 
+
+/* ==========================================================================
+   INTERACTIVE CLIENT UPGRADES: STACKER, WAX SEAL, QUIZ, CURRENCY & SHIMMER
+   ========================================================================== */
+
+/* 1. Button Gold Shimmer Animation */
+.btn-gold, .btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold::after, .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: all 0.75s ease;
+    pointer-events: none;
+}
+
+.btn-gold:hover::after, .btn-primary:hover::after {
+    left: 140%;
+}
+
+/* 2. Currency Selector in Announcement Bar / Header */
+.currency-selector-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-gold-light);
+    font-size: 0.75rem;
+}
+
+.currency-dropdown {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.currency-dropdown option {
+    background: var(--color-primary-dark);
+    color: #FFFFFF;
+}
+
+/* 3. Visual Hamper Stacker Stage */
+.visual-stacker-stage {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
+    border: 1px solid var(--color-sand);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.stacker-stage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed var(--color-sand);
+}
+
+.stacker-stage-title {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.stacker-vessel-preview {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #F3EBDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.stacker-vessel-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.stacker-vessel-badge {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0.6rem;
+    right: 0.6rem;
+    background: rgba(30, 10, 15, 0.88);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid var(--color-gold);
+    text-align: center;
+}
+
+.stacker-contents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-height: 48px;
+    align-content: flex-start;
+}
+
+.stacker-item-pill {
+    background: #FFFFFF;
+    border: 1px solid var(--color-gold);
+    border-radius: 50px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 4. Wax Seal & Calligraphy Message Previewer */
+.wax-seal-previewer-card {
+    background: #FFFFFF;
+    border: 1.5px solid var(--color-sand);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-top: 1.8rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.seal-color-swatches {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.seal-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 0 1px #ccc;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.seal-swatch:hover, .seal-swatch.active {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.parchment-card-preview {
+    margin-top: 1.2rem;
+    background: #FFFDF9;
+    border: 1px solid #E8DECE;
+    border-radius: 4px;
+    padding: 2.2rem 1.8rem 1.5rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(142, 110, 52, 0.08);
+    text-align: center;
+}
+
+.wax-seal-stamp {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    border: 1.5px solid rgba(255,255,255,0.4);
+    transition: background 0.3s ease;
+}
+
+.wax-seal-stamp.gold { background: radial-gradient(circle at 35% 35%, #DFC58C, #8E6E34); }
+.wax-seal-stamp.emerald { background: radial-gradient(circle at 35% 35%, #2D6A4F, #12281E); }
+.wax-seal-stamp.crimson { background: radial-gradient(circle at 35% 35%, #A43A4B, #4A0E18); }
+
+.parchment-text {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #332A24;
+    min-height: 42px;
+    margin-bottom: 0.8rem;
+}
+
+.parchment-text.calligraphy {
+    font-family: 'Great Vibes', cursive, var(--font-editorial);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-primary);
+}
+
+.parchment-text.serif {
+    font-family: var(--font-editorial);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.parchment-text.modern {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.parchment-subtext {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+}
+
+/* 5. 3-Step Occasion Concierge Quiz */
+.quiz-container-card {
+    background: #FFFFFF;
+    border: 1.5px solid rgba(197, 160, 89, 0.4);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.quiz-steps-wrapper {
+    position: relative;
+}
+
+.quiz-step {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.quiz-step.active {
+    display: block;
+}
+
+.quiz-question {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.quiz-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-opt {
+    background: var(--color-cream);
+    border: 1.5px solid var(--color-sand);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.4rem;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.quiz-opt:hover {
+    border-color: var(--color-gold);
+    background: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    color: var(--color-primary);
+}
+
+.quiz-opt.selected {
+    border-color: var(--color-primary);
+    background: rgba(90, 21, 33, 0.05);
+    color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.quiz-results {
+    background: linear-gradient(135deg, var(--color-cream) 0%, #F5EDE0 100%);
+    border: 1.5px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 6. Physical Sample Box Assurance Banner */
+.sample-request-banner {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, #20060B 100%);
+    border: 1.5px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    padding: 2.2rem 2.8rem;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3.5rem 0 1rem;
+    box-shadow: var(--shadow-lg);
+    flex-wrap: wrap;
+}
+
+.sample-banner-icon {
+    font-size: 2.5rem;
+    width: 65px;
+    height: 65px;
+    background: rgba(197, 160, 89, 0.15);
+    border: 1px solid var(--color-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sample-banner-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.sample-banner-text h4 {
+    font-family: var(--font-editorial);
+    font-size: 1.6rem;
+    color: var(--color-gold-light);
+    margin-bottom: 0.4rem;
+}
+
+.sample-banner-text p {
+    font-size: 0.9rem;
+    color: rgba(250, 247, 242, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .sample-request-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+    .sample-banner-icon { margin: 0 auto; }
+    .quiz-options-grid { grid-template-columns: 1fr; }
+    .quiz-container-card { padding: 2rem 1.5rem; }
+}

@@ -18,6 +18,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A059'><path d='M12 2C12 2 9 6.5 9 10C9 12.21 10.34 14 12 14C13.66 14 15 12.21 15 10C15 6.5 12 2 12 2ZM5.5 10C5.5 10 3 13.5 3 16C3 17.66 4.34 19 6 19C7.38 19 8.5 18 8.88 16.75C7.24 15.5 6.13 13.3 5.5 10ZM18.5 10C17.87 13.3 16.76 15.5 15.12 16.75C15.5 18 16.62 19 18 19C19.66 19 21 17.66 21 16C21 13.5 18.5 10 18.5 10ZM12 15C10.5 15 8.5 16 7 18C7 18 9 21 12 21C15 21 17 18 17 18C15.5 16 13.5 15 12 15Z'/></svg>">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
     <link rel="stylesheet" href="{{ $base_url }}/assets/css/style.css">
 </head>
 <body>
@@ -69,8 +70,18 @@
                     </ul>
                 </nav>
 
-                <!-- Actions / Wishlist Drawer & CTA -->
+                <!-- Actions / Wishlist Drawer, Currency & CTA -->
                 <div class="nav-actions">
+                    <div class="currency-selector-wrapper">
+                        <span style="font-size: 0.65rem; opacity: 0.85; text-transform: uppercase;">Cur:</span>
+                        <select class="currency-dropdown" id="globalCurrencySelector" aria-label="Select Currency">
+                            <option value="INR" selected>INR (₹)</option>
+                            <option value="USD">USD ($)</option>
+                            <option value="AED">AED (د.إ)</option>
+                            <option value="GBP">GBP (£)</option>
+                        </select>
+                    </div>
+
                     <button class="btn-icon btn-inquiry-trigger" aria-label="View Hamper Inquiries" title="View Wishlist & Inquiries">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -131,6 +142,22 @@
     <main>
         @yield('content')
     </main>
+
+    <!-- Physical Sample Box Assurance Banner -->
+    <section class="section" style="padding: 1rem 0 3rem;">
+        <div class="container">
+            <div class="sample-request-banner">
+                <div class="sample-banner-icon">📦</div>
+                <div class="sample-banner-text">
+                    <h4>Planning a Curated Bulk Order of 30+ Units?</h4>
+                    <p>Experience the texture of our velvet trunks, taste slow-roasted dry fruits, and inspect brass seals in person. We courier an unboxing prototype to your doorstep within 48 hours.</p>
+                </div>
+                <a href="https://wa.me/919876543210?text=Hello%20Gulbani,%20I%20am%20planning%20a%20bulk%20order%20of%2030+%20units%20and%20would%20like%20to%20request%20a%20physical%20sample%20box." target="_blank" rel="noopener" class="btn btn-gold btn-sm">
+                    Request Sample Box
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Master Footer -->
     <footer class="site-footer">
